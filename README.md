@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Testes End to End - Ebac Shop
 ### Exercício para os alunos de Qualidade de software da EBAC 
 
@@ -49,3 +50,6 @@ Qualidade de software
 
 
 
+=======
+# teste-e2e-ebac
+>>>>>>> b26385fc5909ae199f4303be4f2868ee0eb00dea
