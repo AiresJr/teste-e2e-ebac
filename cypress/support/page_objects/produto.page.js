@@ -1,7 +1,5 @@
-import { faker } from '@faker-js/faker';
-
 class produtosPage {
-       visitarUrl() {
+    visitarUrl() {
         cy.visit('produtos')
     };
     //Faz a busca de produtos por nome 
