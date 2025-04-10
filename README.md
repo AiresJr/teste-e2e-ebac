@@ -17,7 +17,7 @@ Ebac shop: http://lojaebac.ebaconline.art.br/
 
 Via terminal, rode os seguintes comandos:
 ```  
-git clone https://github.com/EBAC-QE/teste-e2e-ebac.git
+git clone https://github.com/AiresJr/teste-e2e-ebac.git
 ```
 ```
 cd teste-e2e-ebac
