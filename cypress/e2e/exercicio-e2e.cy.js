@@ -1,9 +1,8 @@
 /// <reference types="cypress" />
 import { faker } from '@faker-js/faker';
-
-const randomName = faker.person.fullName(); // Rowan Nikolaus
-const randomEmail = faker.internet.email(); // Kassandra.Haley@erich.biz
 import produtoPage from "../support/page_objects/produto.page";
+import carrinhoPage from '../support/page_objects/carrinho.page';
+import checkoutPage from '../support/page_objects/checkout.page';
 
 describe('Exercicio - Testes End-to-end - Fluxo de pedido', () => {
     /*  Como cliente 
@@ -18,7 +17,7 @@ describe('Exercicio - Testes End-to-end - Fluxo de pedido', () => {
         produtoPage.visitarUrl()
     });
 
-    it.only('Deve fazer um pedido na loja Ebac Shop de ponta a ponta', () => {
+    it('Deve fazer um pedido na loja Ebac Shop de ponta a ponta', () => {
         var nome = faker.person.firstName()
         var sobrenome = faker.person.lastName()
         var endereço = faker.location.streetAddress()
@@ -26,9 +25,9 @@ describe('Exercicio - Testes End-to-end - Fluxo de pedido', () => {
         var cep = faker.location.zipCode('#####-###')
         var telefone = faker.phone.number(({ style: 'national' }), '(##) #####-####')
         var email = faker.internet.email()
-        //Escolha as opções de transferência
-        var transfBancaria = 'bacs'
-        var cheque = 'cheque'
+        //Escolha as opções de pagamento
+        var pagamentoTransf = 'bacs'
+        var pagamentoCheque = 'cheque'
         var pagamentoEntrega = 'cod'
 
         cy.fixture('produtos').then(dados => {
@@ -40,10 +39,9 @@ describe('Exercicio - Testes End-to-end - Fluxo de pedido', () => {
             produtoPage.addProtudoCarrinho(dados[3].tamanho, dados[3].cor, dados[3].quantidade);
             produtoPage.buscarProduto(dados[0].nomeProduto);
             produtoPage.addProtudoCarrinho(dados[0].tamanho, dados[0].cor, dados[0].quantidade);
-            produtoPage.checkoutCompras(nome, sobrenome, endereço, cidade, cep, telefone, email, pagamentoEntrega);
+            carrinhoPage.irParaCheckout()
+            checkoutPage.checkoutCompras(nome, sobrenome, endereço, cidade, cep, telefone, email, pagamentoEntrega);
         })
-
-
 
     });
 
